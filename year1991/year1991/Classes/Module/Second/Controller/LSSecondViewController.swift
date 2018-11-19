@@ -36,7 +36,8 @@ class LSSecondViewController: LSViewController {
         view.backgroundColor = UIColor.white
         view.delegate = self
         view.itemNames = ["First","Second","Third","Second","Third"]
-//        view.itemWidth = kScreenWidth/CGFloat(view.itemNames.count)
+        view.contentOffsetY = 6
+        view.contentToSide = 20
         view.refreshContentUI()
         return view
     }()

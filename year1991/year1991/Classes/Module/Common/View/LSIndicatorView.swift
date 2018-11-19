@@ -10,6 +10,7 @@
 
 /*
  支持横竖屏切换;
+ tab项等宽;
  itemWidth 宽度 由item数量、itemMargin与contentToSide共同决定;
  */
 
@@ -30,6 +31,7 @@ class LSIndicatorView: UIView {
     /// 边距
     var contentToSide: CGFloat = 0
     
+    // ⚠️设置该参数时应避免contentOffsetY+itemHeight的高度大于indicator自身的高度
     /// y轴距离
     var contentOffsetY: CGFloat = 0
     
@@ -49,14 +51,15 @@ class LSIndicatorView: UIView {
     var itemSelectedColor: UIColor = UIColor.black
     
     /// 字号
-    var itemFont: UIFont = UIFont.systemFont(ofSize: 17)
+    var itemFont: UIFont = UIFont.systemFont(ofSize: 16)
     
     /// 选中的字号
-    var itemSelectedFont: UIFont = UIFont.systemFont(ofSize: 17)
+    var itemSelectedFont: UIFont = UIFont.systemFont(ofSize: 18)
     
     /// 下划线宽度
     var selectedLineWidth: CGFloat = 20
-    
+    /// 下划线高度
+    var selectedLineHeight: CGFloat = 3
     /// 下划线颜色
     var selectedLineColor: UIColor = UIColor.darkGray
     
@@ -69,6 +72,8 @@ class LSIndicatorView: UIView {
     
     fileprivate let itemTag = 1991
     
+    fileprivate var selectedLineCenterX: NSLayoutConstraint?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -80,19 +85,6 @@ class LSIndicatorView: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(UIDevice.orientationDidChangeNotification)
-    }
-    
-    // 基础UI
-    private func setupDefaultUI() {
-        addSubview(separateLine)
-        addSubview(selectedLine)
-        
-        separateLine.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.equalTo(1)
-        }
     }
     
     ///  刷新内容页面
@@ -132,15 +124,32 @@ class LSIndicatorView: UIView {
         }
     }
     
+    // 基础UI
+    private func setupDefaultUI() {
+        addSubview(separateLine)
+        addSubview(selectedLine)
+        
+        self.addConstraint(NSLayoutConstraint(item: separateLine, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: separateLine, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: separateLine, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: separateLine, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 1))
+        
+        self.addConstraint(NSLayoutConstraint(item: selectedLine, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: selectedLineHeight))
+        self.addConstraint(NSLayoutConstraint(item: selectedLine, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: selectedLineWidth))
+        self.addConstraint(NSLayoutConstraint(item: selectedLine, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
+    }
+    
     lazy var selectedLine: UIView = {
         let view = UIView()
         view.backgroundColor = selectedLineColor
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var separateLine: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -167,11 +176,11 @@ extension LSIndicatorView {
         selectedItem = button
         selectedIndex = button.tag - itemTag
         
-        selectedLine.snp.remakeConstraints { (make) in
-            make.centerX.equalTo(button)
-            make.bottom.equalToSuperview()
-            make.size.equalTo(CGSize(width: selectedLineWidth, height: 3))
+        if let constraint = selectedLineCenterX {
+            self.removeConstraint(constraint)
         }
+        selectedLineCenterX = NSLayoutConstraint(item: selectedLine, attribute: .centerX, relatedBy: .equal, toItem: button, attribute: .centerX, multiplier: 1.0, constant: 0)
+        self.addConstraint(selectedLineCenterX!)
     }
     
     // 设备横竖屏变化的通知事件
