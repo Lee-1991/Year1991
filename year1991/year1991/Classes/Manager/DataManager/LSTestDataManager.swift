@@ -1,9 +1,9 @@
 //
-//  APTestDataManager.swift
-//  ActiveProject
+//  LSTestDataManager.swift
+//  year1991
 //
-//  Created by Lee on 2018/8/21.
-//  Copyright © 2018年 7moor. All rights reserved.
+//  Created by Lee on 2018/11/19.
+//  Copyright © 2018 辛未年. All rights reserved.
 //
 //  测试数据
 
@@ -11,9 +11,9 @@ import UIKit
 
 let kTestPlaceholderImageUrl = "https://i.loli.net/2017/11/09/5a046546a2a1f.jpg"
 
-class APTestDataManager: NSObject {
+class LSTestDataManager: NSObject {
     
-    static let shared = APTestDataManager()
+    static let shared = LSTestDataManager()
     
     private override init() {
         super.init()
@@ -56,7 +56,7 @@ class APTestDataManager: NSObject {
     }
     
     var coverUrl: URL? {
-        return URL(string: APTestDataManager.shared.imageUrl)
+        return URL(string: LSTestDataManager.shared.imageUrl)
     }
     
     private let random_str_characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ开发好风景啊就分开了发号施令是开挂了第九十六回事记得给老公链家时光，。！；辣椒不撒娇啊飞就到了发福利"

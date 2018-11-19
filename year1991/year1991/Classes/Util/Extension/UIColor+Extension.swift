@@ -10,6 +10,13 @@ import UIKit
 
 extension UIColor {
     
+    /// 随机色值
+    ///
+    /// - Parameter alpha: 透明度
+    static func randomColor(_ alpha: CGFloat = 1.0) -> UIColor {
+        return UIColor.color(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)), alpha: alpha)
+    }
+    
     /// RGB色值
     static func color(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: alpha)

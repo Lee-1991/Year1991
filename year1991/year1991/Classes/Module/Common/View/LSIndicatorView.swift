@@ -8,6 +8,12 @@
 //  tab切换
 //  使用indicator的时候，设置完参数需要调用refreshContentUI()
 
+//TODO: 优化indicator组件
+//    1、增加样式（item等宽、item根据内容宽度自适应）
+//    2、可滚动  （新增一种indicator样式？）
+//    3、配置项的易用与实用问题
+//    4、横竖屏兼容  done
+
 import UIKit
 
 protocol LSIndicatorViewDelegate {
@@ -15,12 +21,14 @@ protocol LSIndicatorViewDelegate {
     func indicatorViewSelect(index: Int)
 }
 
+fileprivate var indicatorWidth = UIScreen.main.bounds.size.width
+
 class LSIndicatorView: UIView {
     
     var delegate: LSIndicatorViewDelegate?
     
-    /// 左边距
-    var itemToLeft: CGFloat = 60
+    /// 边距
+    var itemToSide: CGFloat = 0
     
     /// 间距
 //    var itemMargin: CGFloat =  100
@@ -59,17 +67,23 @@ class LSIndicatorView: UIView {
     
     fileprivate var selectedItem: UIButton?
     
-    fileprivate let itemTag = 100
+    fileprivate let itemTag = 1991
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupDefaultUI()
+//        setupDefaultUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(UIDevice.orientationDidChangeNotification)
+    }
+    
+    // 基础UI
     private func setupDefaultUI() {
         addSubview(separateLine)
         addSubview(selectedLine)
@@ -80,21 +94,22 @@ class LSIndicatorView: UIView {
             make.bottom.equalToSuperview()
             make.height.equalTo(1)
         }
-        
-//        selectedLine.snp.makeConstraints { (make) in
-//            make.left.equalTo(itemToLeft)
-//            make.bottom.equalToSuperview()
-//            make.width.equalTo(selectedLineWidth)
-//            make.height.equalTo(3)
-//        }
     }
     
-    func refreshContentUI() {
-        
-        var offsetX: CGFloat = itemToLeft
+    ///  刷新内容页面
+    func refreshContentUI(_ withAction: Bool = true) {
+        // 1.移除原有内容
+        _ = self.subviews.map{
+            $0.removeFromSuperview()
+        }
+        // 2.添加基础UI
+        setupDefaultUI()
+        // 3.item绘制
+        var offsetX: CGFloat = itemToSide
         let offsetY: CGFloat = itemOffsetY
         let itemCount = CGFloat(itemNames.count)
-        let margin: CGFloat = (kScreenWidth - itemToLeft*2 - itemWidth * itemCount)/(itemCount - 1)
+        self.itemWidth = (indicatorWidth - itemToSide*2)/itemCount
+        let margin: CGFloat = (indicatorWidth - itemToSide*2 - itemWidth * itemCount)/(itemCount - 1)
         
         for item in itemNames.enumerated() {
             
@@ -108,21 +123,14 @@ class LSIndicatorView: UIView {
             addSubview(button)
             
             if item.offset == selectedIndex {
-                
-                selectedLine.snp.makeConstraints { (make) in
-                    make.centerX.equalTo(button)
-                    make.bottom.equalToSuperview()
-                    make.size.equalTo(CGSize(width: selectedLineWidth, height: 3))
+                if withAction {
+                    self.onClickItem(button)
+                } else {
+                    self.updateSelectedUI(button)
                 }
-                
-                button.isSelected = true
-                selectedItem = button
-                self.onClickItem(button)
             }
-            
             offsetX += (itemWidth + margin)
         }
-        
     }
     
     lazy var selectedLine: UIView = {
@@ -141,27 +149,35 @@ class LSIndicatorView: UIView {
 // MARK: - 逻辑处理
 extension LSIndicatorView {
     
+    /// item选中事件
     @objc fileprivate func onClickItem(_ sender:UIButton) {
+        updateSelectedUI(sender)
+        
+        selectedIndex = sender.tag - itemTag
+        delegate?.indicatorViewSelect(index: selectedIndex)
+    }
+    
+    ///  更新选中状态的UI
+    fileprivate func updateSelectedUI(_ button: UIButton) {
         
         selectedItem?.titleLabel?.font = itemFont
         selectedItem?.isSelected = false
-        sender.titleLabel?.font = itemSelectedFont
-        sender.isSelected = true
-        selectedItem = sender
+        button.titleLabel?.font = itemSelectedFont
+        button.isSelected = true
+        selectedItem = button
+        selectedIndex = button.tag - itemTag
         
         selectedLine.snp.remakeConstraints { (make) in
-            make.centerX.equalTo(sender)
+            make.centerX.equalTo(button)
             make.bottom.equalToSuperview()
             make.size.equalTo(CGSize(width: selectedLineWidth, height: 3))
         }
-//        selectedLine.snp.updateConstraints { (make) in
-//            make.centerX.equalTo(sender)
-//        }
-        
-        selectedIndex = sender.tag - itemTag
-        
-        delegate?.indicatorViewSelect(index: selectedIndex)
-        
+    }
+    
+    // 设备横竖屏变化的通知事件
+    @objc fileprivate func deviceOrientationDidChange(_ notify: Notification){
+        indicatorWidth = UIScreen.main.bounds.size.width
+        refreshContentUI(false)
     }
     
 }

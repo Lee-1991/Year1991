@@ -13,23 +13,40 @@ class LSSecondViewController: LSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupContentView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         hidesBottomBarWhenPushed = false
-        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setupContentView() {
+        view.addSubview(indicator)
+        indicator.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalTo(50)
+        }
     }
-    */
+    
+    lazy var indicator: LSIndicatorView = {
+        let view = LSIndicatorView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 50))
+        view.backgroundColor = UIColor.white
+        view.delegate = self
+        view.itemNames = ["First","Second","Third","Second","Third"]
+//        view.itemWidth = kScreenWidth/CGFloat(view.itemNames.count)
+        view.refreshContentUI()
+        return view
+    }()
 
+
+}
+
+extension LSSecondViewController: LSIndicatorViewDelegate {
+    func indicatorViewSelect(index: Int) {
+        LSHUD.showInfo("index:\(index)")
+        self.view.backgroundColor = UIColor.randomColor()
+    }
 }

@@ -28,8 +28,8 @@
 		49D2B6B421A257BD006F18B7 /* APMineProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B68521A257BD006F18B7 /* APMineProfileCell.swift */; };
 		49D2B6B621A257BD006F18B7 /* HCImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69721A257BD006F18B7 /* HCImageScrollView.swift */; };
 		49D2B6B721A257BD006F18B7 /* HCShowImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69821A257BD006F18B7 /* HCShowImageManager.swift */; };
-		49D2B6BA21A257BD006F18B7 /* APTestDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69C21A257BD006F18B7 /* APTestDataManager.swift */; };
-		49D2B6BB21A257BD006F18B7 /* APPathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69D21A257BD006F18B7 /* APPathManager.swift */; };
+		49D2B6BA21A257BD006F18B7 /* LSTestDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69C21A257BD006F18B7 /* LSTestDataManager.swift */; };
+		49D2B6BB21A257BD006F18B7 /* LSPathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69D21A257BD006F18B7 /* LSPathManager.swift */; };
 		49D2B6BC21A257BD006F18B7 /* LSNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69E21A257BD006F18B7 /* LSNetwork.swift */; };
 		49D2B6BD21A257BD006F18B7 /* LSNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B69F21A257BD006F18B7 /* LSNetworkManager.swift */; };
 		49D2B6BE21A257BD006F18B7 /* LSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B6A021A257BD006F18B7 /* LSNotification.swift */; };
@@ -79,8 +79,8 @@
 		49D2B68521A257BD006F18B7 /* APMineProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APMineProfileCell.swift; sourceTree = "<group>"; };
 		49D2B69721A257BD006F18B7 /* HCImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCImageScrollView.swift; sourceTree = "<group>"; };
 		49D2B69821A257BD006F18B7 /* HCShowImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCShowImageManager.swift; sourceTree = "<group>"; };
-		49D2B69C21A257BD006F18B7 /* APTestDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APTestDataManager.swift; sourceTree = "<group>"; };
-		49D2B69D21A257BD006F18B7 /* APPathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPathManager.swift; sourceTree = "<group>"; };
+		49D2B69C21A257BD006F18B7 /* LSTestDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSTestDataManager.swift; sourceTree = "<group>"; };
+		49D2B69D21A257BD006F18B7 /* LSPathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSPathManager.swift; sourceTree = "<group>"; };
 		49D2B69E21A257BD006F18B7 /* LSNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSNetwork.swift; sourceTree = "<group>"; };
 		49D2B69F21A257BD006F18B7 /* LSNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSNetworkManager.swift; sourceTree = "<group>"; };
 		49D2B6A021A257BD006F18B7 /* LSNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSNotification.swift; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 			children = (
 				49D2B66B21A257BD006F18B7 /* LSHUD.swift */,
 				49D2B66C21A257BD006F18B7 /* LSUtilDate.swift */,
-				49D2B66D21A257BD006F18B7 /* Extension */,
 				49D2B67521A257BD006F18B7 /* LSUtils.swift */,
+				49D2B66D21A257BD006F18B7 /* Extension */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -423,8 +423,8 @@
 		49D2B69B21A257BD006F18B7 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				49D2B69C21A257BD006F18B7 /* APTestDataManager.swift */,
-				49D2B69D21A257BD006F18B7 /* APPathManager.swift */,
+				49D2B69C21A257BD006F18B7 /* LSTestDataManager.swift */,
+				49D2B69D21A257BD006F18B7 /* LSPathManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -610,14 +610,14 @@
 				49D2B6A521A257BD006F18B7 /* LSHUD.swift in Sources */,
 				49D2B6B421A257BD006F18B7 /* APMineProfileCell.swift in Sources */,
 				49D2B6BD21A257BD006F18B7 /* LSNetworkManager.swift in Sources */,
-				49D2B6BA21A257BD006F18B7 /* APTestDataManager.swift in Sources */,
+				49D2B6BA21A257BD006F18B7 /* LSTestDataManager.swift in Sources */,
 				49D2B6CA21A25DCC006F18B7 /* LSTabBarController.swift in Sources */,
 				49D2B6BF21A257BD006F18B7 /* LSQiniuManager.swift in Sources */,
 				49D2B6C221A257BD006F18B7 /* LSAppEngin.swift in Sources */,
 				49D2B6C021A257BD006F18B7 /* LSUserDefaults.swift in Sources */,
 				49D2B6C921A25DCC006F18B7 /* LSNavigationController.swift in Sources */,
 				49D2B6B621A257BD006F18B7 /* HCImageScrollView.swift in Sources */,
-				49D2B6BB21A257BD006F18B7 /* APPathManager.swift in Sources */,
+				49D2B6BB21A257BD006F18B7 /* LSPathManager.swift in Sources */,
 				49D2B6AA21A257BD006F18B7 /* UIView+Extension.swift in Sources */,
 				49D2B6D621A25E31006F18B7 /* LSIndicatorView.swift in Sources */,
 				49D2B6AF21A257BD006F18B7 /* APMineViewModel.swift in Sources */,

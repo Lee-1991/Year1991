@@ -1,14 +1,14 @@
 //
-//  APPathManager.swift
-//  ActiveProject
+//  LSPathManager.swift
+//  year1991
 //
-//  Created by Lee on 2018/9/5.
-//  Copyright © 2018年 7moor. All rights reserved.
+//  Created by Lee on 2018/11/19.
+//  Copyright © 2018 辛未年. All rights reserved.
 //
 
 import UIKit
 
-class APPathManager: NSObject {
+class LSPathManager: NSObject {
 
     // MARK: - return document
     /// document下面的路径
