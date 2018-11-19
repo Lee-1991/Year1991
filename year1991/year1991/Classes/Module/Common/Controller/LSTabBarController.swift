@@ -28,9 +28,9 @@ class LSTabBarController: UITabBarController {
 extension LSTabBarController {
     
     fileprivate func addChildViewControllers() {
-//        addSingleChildVC(APAlbumViewController(), title: "活动相册", iconName: "tabbar_album_")
-//        addSingleChildVC(APFeedViewController(), title: "影集", iconName: "tabbar_feed_")
-//        addSingleChildVC(APMineViewController(), title: "我的", iconName: "tabbar_mine_")
+        addSingleChildVC(LSFirstViewController(), title: "活动相册", iconName: "tabbar_album_")
+        addSingleChildVC(LSSecondViewController(), title: "影集", iconName: "tabbar_feed_")
+        addSingleChildVC(LSMineViewController(), title: "我的", iconName: "tabbar_mine_")
     }
     
     private func addSingleChildVC(_ childVC: LSViewController, title: String, iconName: String) {
@@ -41,11 +41,7 @@ extension LSTabBarController {
         let attriNormal = [NSAttributedString.Key.foregroundColor: UIColor.color("#2C2D32"),NSAttributedString.Key.font: UIFont.font(10)]
         childVC.tabBarItem.setTitleTextAttributes(attriNormal, for: .normal)
         let attriSelected = [NSAttributedString.Key.foregroundColor: UIColor.color("#2C2D32"),NSAttributedString.Key.font: UIFont.font(10)]
-//        if title == "影集" {
-//            attriSelected = [NSAttributedString.Key.foregroundColor: UIColor.color("#2C2D32", alpha: 0),NSAttributedString.Key.font: UIFont.font(0.1)]
-//        }
         childVC.tabBarItem.setTitleTextAttributes(attriSelected, for: .selected)
-//        childVC.tabBarItem.isEnabled = false
         self.addChild(nav)
     }
 }

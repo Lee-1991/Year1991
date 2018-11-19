@@ -21,8 +21,8 @@ class LSNavigationController: UINavigationController {
     
     private func setupUI() {
 //        navigationBar.shadowImage = UIImage()//导航栏底部的横线
-        navigationBar.backIndicatorImage = #imageLiteral(resourceName: "arrow_right_nav_back")
-        navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "arrow_right_nav_back")
+//        navigationBar.backIndicatorImage = #imageLiteral(resourceName: "arrow_right_nav_back")
+//        navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "arrow_right_nav_back")
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = UIColor.color("#FFFFFF")
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.color("#000000"), NSAttributedString.Key.font: UIFont.mediumFont(19)]

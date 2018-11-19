@@ -76,7 +76,7 @@ class APMineNormalCell: UITableViewCell {
     }()
     
     private lazy var arrowIcon: UIImageView = {
-        let view = UIImageView(image: #imageLiteral(resourceName: "arrow_right_mine"))
+        let view = UIImageView()
         return view
     }()
     

@@ -19,7 +19,7 @@ class APMineProfileCell: UITableViewCell {
     }()
     
     lazy var backImgView: UIImageView = {
-        let view = UIImageView(image: #imageLiteral(resourceName: "mine_profile_background"))
+        let view = UIImageView()
         view.contentMode = .scaleAspectFill
         return view
     }()

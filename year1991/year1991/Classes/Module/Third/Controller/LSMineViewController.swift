@@ -9,7 +9,7 @@
 
 import UIKit
 
-class APMineViewController: LSViewController {
+class LSMineViewController: LSViewController {
 
     var viewModel = APMineViewModel()
 
@@ -71,7 +71,7 @@ class APMineViewController: LSViewController {
 }
 
 //MARK: -tableView
-extension APMineViewController: UITableViewDelegate, UITableViewDataSource{
+extension LSMineViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.setctionCount
@@ -160,5 +160,5 @@ extension APMineViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension APMineViewController {
+extension LSMineViewController {
 }

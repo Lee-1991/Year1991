@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		49CD3050219E795C00E75750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD304F219E795C00E75750 /* AppDelegate.swift */; };
-		49CD3052219E795C00E75750 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD3051219E795C00E75750 /* ViewController.swift */; };
-		49CD3055219E795C00E75750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CD3053219E795C00E75750 /* Main.storyboard */; };
 		49CD3057219E795D00E75750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CD3056219E795D00E75750 /* Assets.xcassets */; };
 		49CD305A219E795D00E75750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CD3058219E795D00E75750 /* LaunchScreen.storyboard */; };
 		49D2B6A521A257BD006F18B7 /* LSHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B66B21A257BD006F18B7 /* LSHUD.swift */; };
@@ -51,6 +49,8 @@
 		49D2B6D621A25E31006F18B7 /* LSIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B6D121A25E31006F18B7 /* LSIndicatorView.swift */; };
 		49D2B6DD21A26155006F18B7 /* LSAuthority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B6DC21A26155006F18B7 /* LSAuthority.swift */; };
 		49D2B6DF21A2620E006F18B7 /* LSWeixinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B6DE21A2620E006F18B7 /* LSWeixinManager.swift */; };
+		49D2B6E121A26A0D006F18B7 /* LSFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B6E021A26A0D006F18B7 /* LSFirstViewController.swift */; };
+		49D2B6E321A26A2A006F18B7 /* LSSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B6E221A26A2A006F18B7 /* LSSecondViewController.swift */; };
 		64D0DE7255959158FABAE1D2 /* Pods_year1991.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC6F8781983133C982AACAB /* Pods_year1991.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +58,6 @@
 		329804DF4D7D3DBF680F3BFB /* Pods-year1991.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-year1991.debug.xcconfig"; path = "Pods/Target Support Files/Pods-year1991/Pods-year1991.debug.xcconfig"; sourceTree = "<group>"; };
 		49CD304C219E795C00E75750 /* year1991.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = year1991.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CD304F219E795C00E75750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49CD3051219E795C00E75750 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		49CD3054219E795C00E75750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49CD3056219E795D00E75750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49CD3059219E795D00E75750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49CD305B219E795D00E75750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +101,8 @@
 		49D2B6D821A25FA6006F18B7 /* year1991-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "year1991-Bridging-Header.h"; sourceTree = "<group>"; };
 		49D2B6DC21A26155006F18B7 /* LSAuthority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSAuthority.swift; sourceTree = "<group>"; };
 		49D2B6DE21A2620E006F18B7 /* LSWeixinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSWeixinManager.swift; sourceTree = "<group>"; };
+		49D2B6E021A26A0D006F18B7 /* LSFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSFirstViewController.swift; sourceTree = "<group>"; };
+		49D2B6E221A26A2A006F18B7 /* LSSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSecondViewController.swift; sourceTree = "<group>"; };
 		A394ED5573F6B6326DC335C5 /* Pods-year1991.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-year1991.release.xcconfig"; path = "Pods/Target Support Files/Pods-year1991/Pods-year1991.release.xcconfig"; sourceTree = "<group>"; };
 		BDC6F8781983133C982AACAB /* Pods_year1991.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_year1991.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,8 +143,6 @@
 				49CD304F219E795C00E75750 /* AppDelegate.swift */,
 				49D2B66921A257BD006F18B7 /* Classes */,
 				49D2B6D721A25F7B006F18B7 /* Support */,
-				49CD3051219E795C00E75750 /* ViewController.swift */,
-				49CD3053219E795C00E75750 /* Main.storyboard */,
 				49CD3056219E795D00E75750 /* Assets.xcassets */,
 				49CD3058219E795D00E75750 /* LaunchScreen.storyboard */,
 				49CD305B219E795D00E75750 /* Info.plist */,
@@ -193,8 +191,8 @@
 			children = (
 				49D2B68B21A257BD006F18B7 /* Common */,
 				49D2B67721A257BD006F18B7 /* First */,
-				49D2B67B21A257BD006F18B7 /* Third */,
 				49D2B68621A257BD006F18B7 /* Second */,
+				49D2B67B21A257BD006F18B7 /* Third */,
 				49D2B68F21A257BD006F18B7 /* Login */,
 			);
 			path = Module;
@@ -213,6 +211,7 @@
 		49D2B67821A257BD006F18B7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				49D2B6E021A26A0D006F18B7 /* LSFirstViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,6 +296,7 @@
 		49D2B68821A257BD006F18B7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				49D2B6E221A26A2A006F18B7 /* LSSecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -520,7 +520,6 @@
 			files = (
 				49CD305A219E795D00E75750 /* LaunchScreen.storyboard in Resources */,
 				49CD3057219E795D00E75750 /* Assets.xcassets in Resources */,
-				49CD3055219E795C00E75750 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,9 +623,9 @@
 				49D2B6AF21A257BD006F18B7 /* APMineViewModel.swift in Sources */,
 				49D2B6AB21A257BD006F18B7 /* UIImage+Extension.swift in Sources */,
 				49D2B6D321A25E31006F18B7 /* LSShareView.swift in Sources */,
-				49CD3052219E795C00E75750 /* ViewController.swift in Sources */,
 				49D2B6B321A257BD006F18B7 /* APMineNormalCell.swift in Sources */,
 				49D2B6B021A257BD006F18B7 /* LSSettingViewController.swift in Sources */,
+				49D2B6E321A26A2A006F18B7 /* LSSecondViewController.swift in Sources */,
 				49D2B6A821A257BD006F18B7 /* UIColor+Extension.swift in Sources */,
 				49D2B6A721A257BD006F18B7 /* UIFont+Extension.swift in Sources */,
 				49D2B6B721A257BD006F18B7 /* HCShowImageManager.swift in Sources */,
@@ -637,6 +636,7 @@
 				49D2B6B221A257BD006F18B7 /* LSMineViewController.swift in Sources */,
 				49D2B6D521A25E31006F18B7 /* LSDataView.swift in Sources */,
 				49D2B6A921A257BD006F18B7 /* UIButton+Extension.swift in Sources */,
+				49D2B6E121A26A0D006F18B7 /* LSFirstViewController.swift in Sources */,
 				49D2B6C421A25D82006F18B7 /* APConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,14 +644,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		49CD3053219E795C00E75750 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49CD3054219E795C00E75750 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		49CD3058219E795D00E75750 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -52,7 +52,7 @@ class LSViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        self.view.backgroundColor = APConfigColor.background_main
+        self.view.backgroundColor = UIColor.white
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 //            UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 //            UIBarButtonItem(customView: backBtn)
