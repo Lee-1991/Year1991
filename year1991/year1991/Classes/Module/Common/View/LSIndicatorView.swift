@@ -5,19 +5,19 @@
 //  Created by Lee on 2018/11/19.
 //  Copyright © 2018 辛未年. All rights reserved.
 //
-//  tab切换
+//  tab切换器
 //  使用indicator的时候，设置完参数需要调用refreshContentUI()
 
-//TODO: 优化indicator组件
-//    1、增加样式（item等宽、item根据内容宽度自适应）
-//    2、可滚动  （新增一种indicator样式？）
-//    3、配置项的易用与实用问题
-//    4、横竖屏兼容  done
+/*
+ 支持横竖屏切换;
+ itemWidth 宽度 由item数量、itemMargin与contentToSide共同决定;
+ */
 
 import UIKit
 
 protocol LSIndicatorViewDelegate {
     
+    /// 选中项位置
     func indicatorViewSelect(index: Int)
 }
 
@@ -28,37 +28,37 @@ class LSIndicatorView: UIView {
     var delegate: LSIndicatorViewDelegate?
     
     /// 边距
-    var itemToSide: CGFloat = 0
-    
-    /// 间距
-//    var itemMargin: CGFloat =  100
+    var contentToSide: CGFloat = 0
     
     /// y轴距离
-    var itemOffsetY: CGFloat = 0
+    var contentOffsetY: CGFloat = 0
     
-    /// 宽度
-    var itemWidth: CGFloat = 86
+    /// 宽度 由item数量与itemMargin决定
+    fileprivate var itemWidth: CGFloat = 50
     
     /// 高度
-    var itemHeight: CGFloat = 48
+    var itemHeight: CGFloat = 44
+    
+    /// 间距
+    var itemMargin: CGFloat = 0
     
     /// 字体颜色
-    var itemColor: UIColor = UIColor.color("#000000")
+    var itemColor: UIColor = UIColor.gray
     
     /// 选中的字体颜色
-    var itemSelectedColor: UIColor = UIColor.color("#E18D03")
+    var itemSelectedColor: UIColor = UIColor.black
     
     /// 字号
-    var itemFont: UIFont = UIFont.font(17)
+    var itemFont: UIFont = UIFont.systemFont(ofSize: 17)
     
     /// 选中的字号
-    var itemSelectedFont: UIFont = UIFont.font(17)
+    var itemSelectedFont: UIFont = UIFont.systemFont(ofSize: 17)
     
     /// 下划线宽度
-    var selectedLineWidth: CGFloat = 86
+    var selectedLineWidth: CGFloat = 20
     
     /// 下划线颜色
-    var selectedLineColor: UIColor = UIColor.color("#E18D03")
+    var selectedLineColor: UIColor = UIColor.darkGray
     
     var itemNames = [String]()
     
@@ -71,7 +71,6 @@ class LSIndicatorView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        setupDefaultUI()
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
@@ -105,11 +104,11 @@ class LSIndicatorView: UIView {
         // 2.添加基础UI
         setupDefaultUI()
         // 3.item绘制
-        var offsetX: CGFloat = itemToSide
-        let offsetY: CGFloat = itemOffsetY
+        var offsetX: CGFloat = contentToSide
+        let offsetY: CGFloat = contentOffsetY
         let itemCount = CGFloat(itemNames.count)
-        self.itemWidth = (indicatorWidth - itemToSide*2)/itemCount
-        let margin: CGFloat = (indicatorWidth - itemToSide*2 - itemWidth * itemCount)/(itemCount - 1)
+        self.itemWidth = (indicatorWidth - contentToSide*2 - itemMargin*(itemCount-1))/itemCount
+        let margin: CGFloat = itemMargin
         
         for item in itemNames.enumerated() {
             
@@ -140,7 +139,8 @@ class LSIndicatorView: UIView {
     }()
     
     lazy var separateLine: UIView = {
-        let view = UIView.initSeparateLine()
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray
         return view
     }()
     

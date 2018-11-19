@@ -28,9 +28,9 @@ class LSTabBarController: UITabBarController {
 extension LSTabBarController {
     
     fileprivate func addChildViewControllers() {
-        addSingleChildVC(LSFirstViewController(), title: "活动相册", iconName: "tabbar_album_")
-        addSingleChildVC(LSSecondViewController(), title: "影集", iconName: "tabbar_feed_")
-        addSingleChildVC(LSMineViewController(), title: "我的", iconName: "tabbar_mine_")
+        addSingleChildVC(LSFirstViewController(), title: "First", iconName: "tabbar_album_")
+        addSingleChildVC(LSSecondViewController(), title: "Second", iconName: "tabbar_feed_")
+        addSingleChildVC(LSMineViewController(), title: "Third", iconName: "tabbar_mine_")
     }
     
     private func addSingleChildVC(_ childVC: LSViewController, title: String, iconName: String) {
