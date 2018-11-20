@@ -19,7 +19,6 @@ class LSFirstViewController: LSViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         hidesBottomBarWhenPushed = false
-        
     }
     
 

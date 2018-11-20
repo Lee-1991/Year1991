@@ -13,6 +13,8 @@ class LSTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tabBar.isTranslucent = false
+        
         addChildViewControllers()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveNotificationRedHotSopt(notify:)), name: LSNotificationName.kTabbarBadge, object: nil)
