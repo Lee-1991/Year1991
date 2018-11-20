@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492D7D1321A4057800A74121 /* LSCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D7D1221A4057800A74121 /* LSCycleView.swift */; };
 		49CD3050219E795C00E75750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD304F219E795C00E75750 /* AppDelegate.swift */; };
 		49CD3057219E795D00E75750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CD3056219E795D00E75750 /* Assets.xcassets */; };
 		49CD305A219E795D00E75750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CD3058219E795D00E75750 /* LaunchScreen.storyboard */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		329804DF4D7D3DBF680F3BFB /* Pods-year1991.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-year1991.debug.xcconfig"; path = "Pods/Target Support Files/Pods-year1991/Pods-year1991.debug.xcconfig"; sourceTree = "<group>"; };
+		492D7D1221A4057800A74121 /* LSCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCycleView.swift; sourceTree = "<group>"; };
 		49CD304C219E795C00E75750 /* year1991.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = year1991.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CD304F219E795C00E75750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49CD3056219E795D00E75750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				49D2B6D121A25E31006F18B7 /* LSIndicatorView.swift */,
 				49D2B6CE21A25E31006F18B7 /* LSShareView.swift */,
 				49D2B6CF21A25E31006F18B7 /* LSTableView.swift */,
+				492D7D1221A4057800A74121 /* LSCycleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				49D2B6AC21A257BD006F18B7 /* UIViewController+Extension.swift in Sources */,
 				49D2B6B221A257BD006F18B7 /* LSMineViewController.swift in Sources */,
 				49D2B6D521A25E31006F18B7 /* LSDataView.swift in Sources */,
+				492D7D1321A4057800A74121 /* LSCycleView.swift in Sources */,
 				49D2B6A921A257BD006F18B7 /* UIButton+Extension.swift in Sources */,
 				49D2B6E121A26A0D006F18B7 /* LSFirstViewController.swift in Sources */,
 				49D2B6C421A25D82006F18B7 /* APConfig.swift in Sources */,

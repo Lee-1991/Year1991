@@ -30,16 +30,16 @@ class LSTabBarController: UITabBarController {
 extension LSTabBarController {
     
     fileprivate func addChildViewControllers() {
-        addSingleChildVC(LSFirstViewController(), title: "First", iconName: "tabbar_album_")
-        addSingleChildVC(LSSecondViewController(), title: "Second", iconName: "tabbar_feed_")
-        addSingleChildVC(LSMineViewController(), title: "Third", iconName: "tabbar_mine_")
+        addSingleChildVC(LSFirstViewController(), title: "First", iconName: "tabbar_first_")
+        addSingleChildVC(LSSecondViewController(), title: "Second", iconName: "tabbar_second_")
+        addSingleChildVC(LSMineViewController(), title: "Third", iconName: "tabbar_third_")
     }
     
     private func addSingleChildVC(_ childVC: LSViewController, title: String, iconName: String) {
         let nav = LSNavigationController(rootViewController: childVC)
         childVC.title = title
-        childVC.tabBarItem.image = UIImage(named: iconName + "normal")
-        childVC.tabBarItem.selectedImage = UIImage(named: iconName + "selected")
+        childVC.tabBarItem.image = UIImage(named: iconName + "normal")?.withRenderingMode(.alwaysOriginal)
+        childVC.tabBarItem.selectedImage = UIImage(named: iconName + "selected")?.withRenderingMode(.alwaysOriginal)
         let attriNormal = [NSAttributedString.Key.foregroundColor: UIColor.color("#2C2D32"),NSAttributedString.Key.font: UIFont.font(10)]
         childVC.tabBarItem.setTitleTextAttributes(attriNormal, for: .normal)
         let attriSelected = [NSAttributedString.Key.foregroundColor: UIColor.color("#2C2D32"),NSAttributedString.Key.font: UIFont.font(10)]

@@ -21,4 +21,12 @@ extension UIImage {
         UIGraphicsGetCurrentContext()
         return image!
     }
+    
+    /// 原图
+    ///
+    /// - Returns: RenderingMode 为.alwaysOriginal 的图片
+    class func originalImage(_ named: String) -> UIImage? {
+        let image = UIImage(named: named)?.withRenderingMode(.alwaysOriginal)
+        return image
+    }
 }
